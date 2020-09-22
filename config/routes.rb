@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   get 'sessions/new'
   root to: 'blogs#index'
   resources :users, only: [:new, :create, :show]
