@@ -6,6 +6,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<div class="header">
+<h1>My Facebook</h1>
+</div>
   <body>
   <% flash.each do |key, value| %>
    <%= content_tag(:div, value, class: "#{key}") %>
