@@ -7,19 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <div class="header">
-<h1>My Facebook</h1>
+  <%= link_to blogs_path do %> <h1>My Facebook</h1>
+  <% end %>
 </div>
   <body>
+  <% if logged_in? %>
+    <%= link_to "Profile", user_path(current_user.id) %>
+    <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+  <% else %>
+    <%= link_to "Sign up", new_user_path %>
+    <%= link_to "Login", new_session_path %>
+  <% end %>
   <% flash.each do |key, value| %>
    <%= content_tag(:div, value, class: "#{key}") %>
    <% end %>
-   <% if logged_in? %>
-   <%= link_to "sign up", user_path(current_user.id) %>
-   <%= link_to "Login", session_path(current_user.id), method: :delete %>
-   <% else %>
-   <%= link_to "Profil", new_user_path %>
-   <%= link_to "Logout", new_session_path %>
-  <% end %>
   <%= yield %>
     <footer>
       <p> Operating company DIVE INTO CODE Co., Ltd. </ P>
