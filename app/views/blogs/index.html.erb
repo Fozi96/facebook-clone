@@ -12,9 +12,8 @@
   <%= image_tag blog.image.url()%>
   <% end %>
 
-  <p><%= blog.blogs %></p>
+  <p><%= blog.blog %></p>
   <br>
-  <small><%= blog.created_at.strftime%></small>
   <br>
   <span class="button"><%= link_to 'Show', blog %></span>
   <span class="button"><%= link_to 'Edit', edit_blog_path(blog) %></span>

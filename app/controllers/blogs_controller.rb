@@ -25,8 +25,8 @@ class BlogsController < ApplicationController
   def edit
   end
 
-  # POST /blogs
-  # POST /blogs.json
+  # blog /blogs
+  # blog /blogs.json
   def create
     @blog = current_user.blogs.build(blog_params)
 
@@ -68,6 +68,7 @@ class BlogsController < ApplicationController
   def confirm
     @blog = current_user.blogs.build(blog_params)
     @blog.id = params[:id]
+    render :new if @blog.invalid?
   end
 
   private
@@ -78,6 +79,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:blogs, :image, :image_cache)
+      params.require(:blog).permit(:blog, :image, :image_cache, :id)
     end
 end
