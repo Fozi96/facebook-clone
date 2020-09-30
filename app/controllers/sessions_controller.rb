@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = 'logged_in'
-      redirect_to blogs_path)
+      redirect_to blogs_path
     else
       flash[:danger] = 'I failed to login'
       render :new
